@@ -20,8 +20,8 @@ echo $more_repeat_ip | cut -f 2 -d " " > /home/admin/highestip.txt
 
 ```bash
 cd /home/admin
-grep Alice *.txt | wc -l #return 411
-grep Alice *.txt | cut -f 1 -d "." | sort | uniq -c | sort #file is 1342-0
+grep Alice *.txt | wc -l #find all lines with Alice text in all of files with extension txt, return 411
+grep Alice *.txt | cut -f 1 -d "." | sort | uniq -c | sort #show repeat in each all files, file is 1342-0
 grep -A 1 Alice 1342-0.txt #return 156 (-A 1 is next line from grep)
 echo -n 411 > /home/admin/solution; echo 156 >> /home/admin/solution
 ```
@@ -32,7 +32,7 @@ echo -n 411 > /home/admin/solution; echo 156 >> /home/admin/solution
 cd clmystery
 cat instructions
 cd mystery
-grep -n "CLUE" crimescene
+grep -n "CLUE" crimescene # grep -n show line find CLUE
 grep Annabel people #2 womands in lines 40 and 179
 sed -n "40p" streets/Hart_Place #show only line 40, SEE INTERVIEW #47246024
 sed -n "179p" streets/Buckingham_Place #return SEE INTERVIEW #699607
@@ -49,4 +49,14 @@ cat vehicles | tr '\n' ' ' | sed 's/License/\n&/g' | grep L337..9 | grep Honda |
 grep "Joe Germuska" memberships/* #el tiene las membresias
 
 echo "Joe Germuska" > ~/mysolution
+```
+
+![Easy](./img/5.png)
+
+```bash
+nmap -p- localhost #show port open and close, not considered 22 for is use for SSH, 6767 and 8080
+knock localhost 6767 #fist sequence knock
+knock localhost 8080 #seconds sequence knock
+curl localhost
+echo $(curl localhost)
 ```
